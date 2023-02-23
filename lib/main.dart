@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       ),
       builder: (context, child) => ResponsiveWrapper.builder(
         child,
-        maxWidth: 1400,
+        maxWidth: 1920,
         minWidth: 480,
         defaultScale: true,
         breakpoints: [
@@ -66,6 +66,9 @@ class MyHomePage extends HookWidget {
                         thickness: 1,
                       ),
                     ),
+                    const SizedBox(
+                      height: 20,
+                    ),
                     Align(
                       alignment: Alignment.center,
                       child: Text(
@@ -73,9 +76,34 @@ class MyHomePage extends HookWidget {
                         style: headlineTextStyle,
                       ),
                     ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    OurDoctorsContainer(
+                      width: 200,
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 50.0, right: 50.0),
+                      child: Divider(
+                        thickness: 1,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Text(
+                        "Why Vwelfare ?",
+                        style: headlineTextStyle,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
                     MainFeatureContainer(
-                      width: dimenstions.maxWidth,
-                    )
+                      width: 200,
+                    ),
                   ],
                 ),
               ),
