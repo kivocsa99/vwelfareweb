@@ -12,12 +12,15 @@ class MainFeatureContainer extends HookWidget {
     return LayoutBuilder(
       builder: (context, dimensions) {
         return Padding(
-          padding: const EdgeInsets.all(20),
+          padding: dimensions.maxWidth > 900
+              ? const EdgeInsets.only(
+                  left: 100, right: 100, top: 20, bottom: 20)
+              : const EdgeInsets.all(50),
           child: Align(
             alignment: Alignment.center,
             child: SizedBox(
-              height: 300,
-              width: dimensions.maxWidth / 2,
+              height: dimensions.maxWidth > 900 ? 300 : 600,
+              width: dimensions.maxWidth,
               child: dimensions.maxWidth > 900
                   ? Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -70,26 +73,44 @@ class MainFeatureContainer extends HookWidget {
                       ],
                     )
                   : Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: const [
-                        Flexible(
-                          child: FeatureContainer(
-                              description:
-                                  "As a Mental Health clinic\nWe value our patients privacy.",
-                              lottieAsset: "assets/privacy.json"),
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: const [
+                            Flexible(
+                              child: FeatureContainer(
+                                  description:
+                                      "As a Mental Health clinic\nWe value our patients privacy.",
+                                  lottieAsset: "assets/privacy.json"),
+                            ),
+                            Flexible(
+                              child: FeatureContainer(
+                                  description: "",
+                                  lottieAsset: "assets/help.json"),
+                            ),
+                          ],
                         ),
-                        SizedBox(
-                          height: 100,
+                        const SizedBox(
+                          height: 20,
                         ),
-                        Flexible(
-                          child: FeatureContainer(
-                              description: "", lottieAsset: "assets/help.json"),
-                        ),
-                        Flexible(
-                          child: FeatureContainer(
-                              description:
-                                  "Vwelfare has helped over 10,000 patient\nOver the globe",
-                              lottieAsset: "assets/grow.json"),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: const [
+                            Flexible(
+                              child: FeatureContainer(
+                                  description:
+                                      "As a Mental Health clinic\nWe value our patients privacy.",
+                                  lottieAsset: "assets/privacy.json"),
+                            ),
+                            SizedBox(
+                              height: 100,
+                            ),
+                            Flexible(
+                              child: FeatureContainer(
+                                  description: "",
+                                  lottieAsset: "assets/help.json"),
+                            ),
+                          ],
                         ),
                       ],
                     ),

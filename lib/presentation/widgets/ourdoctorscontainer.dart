@@ -8,7 +8,95 @@ class OurDoctorsContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ;
+    return LayoutBuilder(
+      builder: (context, dimensions) {
+        return Padding(
+          padding: const EdgeInsets.all(20),
+          child: Align(
+            alignment: Alignment.center,
+            child: SizedBox(
+              height: 300,
+              width: dimensions.maxWidth / 2,
+              child: dimensions.maxWidth > 900
+                  ? Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Flexible(
+                          child: Column(
+                            children: const [
+                              FeatureContainer(
+                                  description:
+                                      "As a Mental Health clinic\nWe value our patients privacy.",
+                                  lottieAsset: "assets/privacy.json"),
+                            ],
+                          ),
+                        ),
+                        Flexible(
+                          child: Column(
+                            children: const [
+                              SizedBox(
+                                height: 50,
+                              ),
+                              FeatureContainer(
+                                  description: "",
+                                  lottieAsset: "assets/help.json"),
+                            ],
+                          ),
+                        ),
+                        Flexible(
+                          child: Column(
+                            children: const [
+                              FeatureContainer(
+                                  description:
+                                      "Vwelfare has helped over 10,000 patient\nOver the globe",
+                                  lottieAsset: "assets/grow.json"),
+                            ],
+                          ),
+                        ),
+                        Flexible(
+                          child: Column(
+                            children: const [
+                              SizedBox(
+                                height: 50,
+                              ),
+                              FeatureContainer(
+                                  description:
+                                      "Let's Help you\nAnd start our journey.",
+                                  lottieAsset: "assets/help.json"),
+                            ],
+                          ),
+                        ),
+                      ],
+                    )
+                  : Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: const [
+                        Flexible(
+                          child: FeatureContainer(
+                              description:
+                                  "As a Mental Health clinic\nWe value our patients privacy.",
+                              lottieAsset: "assets/privacy.json"),
+                        ),
+                        SizedBox(
+                          height: 100,
+                        ),
+                        Flexible(
+                          child: FeatureContainer(
+                              description: "", lottieAsset: "assets/help.json"),
+                        ),
+                        Flexible(
+                          child: FeatureContainer(
+                              description:
+                                  "Vwelfare has helped over 10,000 patient\nOver the globe",
+                              lottieAsset: "assets/grow.json"),
+                        ),
+                      ],
+                    ),
+            ),
+          ),
+        );
+      },
+    );
   }
 }
 
