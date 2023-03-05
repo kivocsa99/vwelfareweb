@@ -6,6 +6,7 @@ import 'package:vwelfare/presentation/widgets/homecontainer.dart';
 import 'package:vwelfare/presentation/widgets/mainappbar.dart';
 import 'package:vwelfare/presentation/widgets/mainfeaturescontainer.dart';
 import 'package:vwelfare/presentation/widgets/mainnavigationbar.dart';
+import 'package:vwelfare/presentation/widgets/ourdoctorscontainer.dart';
 
 void main() {
   runApp(const MyApp());
@@ -79,9 +80,30 @@ class MyHomePage extends HookWidget {
                     const SizedBox(
                       height: 20,
                     ),
-                    MainFeatureContainer(
-                      width: dimenstions.maxWidth / 2,
+                    MainFeatureContainer(),
+                    const SizedBox(
+                      height: 20,
                     ),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 50.0, right: 50.0),
+                      child: Divider(
+                        thickness: 1,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Text(
+                        "Our Doctors",
+                        style: headlineTextStyle,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    OurDoctorsContainer(),
                   ],
                 ),
               ),

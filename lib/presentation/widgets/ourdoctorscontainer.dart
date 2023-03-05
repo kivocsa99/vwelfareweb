@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 
 import '../components/typography.dart';
+import 'mainfeaturescontainer.dart';
 
 class OurDoctorsContainer extends StatelessWidget {
   const OurDoctorsContainer({super.key});
@@ -15,19 +15,45 @@ class OurDoctorsContainer extends StatelessWidget {
           child: Align(
             alignment: Alignment.center,
             child: SizedBox(
-              height: 300,
+              height: dimensions.maxWidth > 900 ? 300 : 600,
               width: dimensions.maxWidth / 2,
               child: dimensions.maxWidth > 900
                   ? Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Flexible(
                           child: Column(
                             children: const [
-                              FeatureContainer(
+                              Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: DoctorContainer(
+                                    description:
+                                        "As a Mental Health clinic\nWe value our patients privacy.",
+                                    image: "assets/alaa.jpeg"),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Flexible(
+                          child: Column(
+                            children: const [
+                              SizedBox(
+                                height: 50,
+                              ),
+                              DoctorContainer(
                                   description:
                                       "As a Mental Health clinic\nWe value our patients privacy.",
-                                  lottieAsset: "assets/privacy.json"),
+                                  image: "assets/alaa.jpeg"),
+                            ],
+                          ),
+                        ),
+                        Flexible(
+                          child: Column(
+                            children: const [
+                              DoctorContainer(
+                                  description:
+                                      "As a Mental Health clinic\nWe value our patients privacy.",
+                                  image: "assets/alaa.jpeg"),
                             ],
                           ),
                         ),
@@ -37,59 +63,61 @@ class OurDoctorsContainer extends StatelessWidget {
                               SizedBox(
                                 height: 50,
                               ),
-                              FeatureContainer(
-                                  description: "",
-                                  lottieAsset: "assets/help.json"),
-                            ],
-                          ),
-                        ),
-                        Flexible(
-                          child: Column(
-                            children: const [
-                              FeatureContainer(
+                              DoctorContainer(
                                   description:
-                                      "Vwelfare has helped over 10,000 patient\nOver the globe",
-                                  lottieAsset: "assets/grow.json"),
-                            ],
-                          ),
-                        ),
-                        Flexible(
-                          child: Column(
-                            children: const [
-                              SizedBox(
-                                height: 50,
-                              ),
-                              FeatureContainer(
-                                  description:
-                                      "Let's Help you\nAnd start our journey.",
-                                  lottieAsset: "assets/help.json"),
+                                      "As a Mental Health clinic\nWe value our patients privacy.",
+                                  image: "assets/alaa.jpeg"),
                             ],
                           ),
                         ),
                       ],
                     )
                   : Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: const [
+                      children: [
                         Flexible(
-                          child: FeatureContainer(
-                              description:
-                                  "As a Mental Health clinic\nWe value our patients privacy.",
-                              lottieAsset: "assets/privacy.json"),
+                          child: Container(
+                            alignment: Alignment.centerRight,
+                            child: Row(
+                              children: const [
+                                Flexible(
+                                  child: DoctorContainer(
+                                      description:
+                                          "As a Mental Health clinic\nWe value our patients privacy.",
+                                      image: "assets/alaa.jpeg"),
+                                ),
+                                Flexible(
+                                  child: DoctorContainer(
+                                      description:
+                                          "As a Mental Health clinic\nWe value our patients privacy.",
+                                      image: "assets/alaa.jpeg"),
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
-                        SizedBox(
-                          height: 100,
+                        const SizedBox(
+                          height: 50,
                         ),
                         Flexible(
-                          child: FeatureContainer(
-                              description: "", lottieAsset: "assets/help.json"),
-                        ),
-                        Flexible(
-                          child: FeatureContainer(
-                              description:
-                                  "Vwelfare has helped over 10,000 patient\nOver the globe",
-                              lottieAsset: "assets/grow.json"),
-                        ),
+                          child: Container(
+                            alignment: Alignment.centerRight,
+                            child: Row(
+                              children: const [
+                                Flexible(
+                                  child: DoctorContainer(
+                                      description:
+                                          "As a Mental Health clinic\nWe value our patients privacy.",
+                                      image: "assets/alaa.jpeg"),
+                                ),
+                                Flexible(
+                                  child: DoctorContainer(
+                                      description: "",
+                                      image: "assets/alaa.jpeg"),
+                                ),
+                              ],
+                            ),
+                          ),
+                        )
                       ],
                     ),
             ),
@@ -100,11 +128,11 @@ class OurDoctorsContainer extends StatelessWidget {
   }
 }
 
-class FeatureContainer extends StatelessWidget {
-  final String? lottieAsset;
+class DoctorContainer extends StatelessWidget {
+  final String? image;
   final String? description;
-  const FeatureContainer(
-      {super.key, required this.lottieAsset, required this.description});
+  const DoctorContainer(
+      {super.key, required this.image, required this.description});
 
   @override
   Widget build(BuildContext context) {
@@ -124,7 +152,7 @@ class FeatureContainer extends StatelessWidget {
       height: 250,
       width: 200,
       child: Column(children: [
-        Lottie.asset(lottieAsset!, width: 200, height: 150),
+        Image.asset(image!, width: 200, height: 150),
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Text(

@@ -11,110 +11,112 @@ class MainFeatureContainer extends HookWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, dimensions) {
-        return Padding(
-          padding: dimensions.maxWidth > 900
-              ? const EdgeInsets.only(
-                  left: 100, right: 100, top: 20, bottom: 20)
-              : const EdgeInsets.all(50),
-          child: Align(
-            alignment: Alignment.center,
-            child: SizedBox(
-              height: dimensions.maxWidth > 900 ? 300 : 600,
-              width: dimensions.maxWidth,
-              child: dimensions.maxWidth > 900
-                  ? Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Flexible(
-                          child: Column(
-                            children: const [
-                              FeatureContainer(
-                                  description:
-                                      "As a Mental Health clinic\nWe value our patients privacy.",
-                                  lottieAsset: "assets/privacy.json"),
-                            ],
-                          ),
-                        ),
-                        Flexible(
-                          child: Column(
-                            children: const [
-                              SizedBox(
-                                height: 50,
-                              ),
-                              FeatureContainer(
-                                  description: "",
-                                  lottieAsset: "assets/help.json"),
-                            ],
-                          ),
-                        ),
-                        Flexible(
-                          child: Column(
-                            children: const [
-                              FeatureContainer(
-                                  description:
-                                      "Vwelfare has helped over 10,000 patient\nOver the globe",
-                                  lottieAsset: "assets/grow.json"),
-                            ],
-                          ),
-                        ),
-                        Flexible(
-                          child: Column(
-                            children: const [
-                              SizedBox(
-                                height: 50,
-                              ),
-                              FeatureContainer(
-                                  description:
-                                      "Let's Help you\nAnd start our journey.",
-                                  lottieAsset: "assets/help.json"),
-                            ],
-                          ),
-                        ),
-                      ],
-                    )
-                  : Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+        return Align(
+          alignment: Alignment.center,
+          child: SizedBox(
+            height: dimensions.maxWidth > 900 ? 300 : 600,
+            width: dimensions.maxWidth / 2,
+            child: dimensions.maxWidth > 900
+                ? Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Flexible(
+                        child: Column(
                           children: const [
-                            Flexible(
-                              child: FeatureContainer(
-                                  description:
-                                      "As a Mental Health clinic\nWe value our patients privacy.",
-                                  lottieAsset: "assets/privacy.json"),
-                            ),
-                            Flexible(
-                              child: FeatureContainer(
-                                  description: "",
-                                  lottieAsset: "assets/help.json"),
-                            ),
+                            FeatureContainer(
+                                description:
+                                    "As a Mental Health clinic\nWe value our patients privacy.",
+                                lottieAsset: "assets/privacy.json"),
                           ],
                         ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      ),
+                      Flexible(
+                        child: Column(
                           children: const [
-                            Flexible(
-                              child: FeatureContainer(
-                                  description:
-                                      "As a Mental Health clinic\nWe value our patients privacy.",
-                                  lottieAsset: "assets/privacy.json"),
-                            ),
                             SizedBox(
-                              height: 100,
+                              height: 50,
                             ),
-                            Flexible(
-                              child: FeatureContainer(
-                                  description: "",
-                                  lottieAsset: "assets/help.json"),
-                            ),
+                            FeatureContainer(
+                                description: "",
+                                lottieAsset: "assets/help.json"),
                           ],
                         ),
-                      ],
-                    ),
-            ),
+                      ),
+                      Flexible(
+                        child: Column(
+                          children: const [
+                            FeatureContainer(
+                                description:
+                                    "Vwelfare has helped over 10,000 patient\nOver the globe",
+                                lottieAsset: "assets/grow.json"),
+                          ],
+                        ),
+                      ),
+                      Flexible(
+                        child: Column(
+                          children: const [
+                            SizedBox(
+                              height: 50,
+                            ),
+                            FeatureContainer(
+                                description:
+                                    "Let's Help you\nAnd start our journey.",
+                                lottieAsset: "assets/help.json"),
+                          ],
+                        ),
+                      ),
+                    ],
+                  )
+                : Column(
+                    children: [
+                      Flexible(
+                        child: Container(
+                          alignment: Alignment.centerRight,
+                          child: Row(
+                            children: const [
+                              Flexible(
+                                child: FeatureContainer(
+                                    description:
+                                        "As a Mental Health clinic\nWe value our patients privacy.",
+                                    lottieAsset: "assets/privacy.json"),
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Flexible(
+                                child: FeatureContainer(
+                                    description: "",
+                                    lottieAsset: "assets/help.json"),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Flexible(
+                        child: Container(
+                          alignment: Alignment.centerRight,
+                          child: Row(
+                            children: const [
+                              Flexible(
+                                child: FeatureContainer(
+                                    description:
+                                        "As a Mental Health clinic\nWe value our patients privacy.",
+                                    lottieAsset: "assets/privacy.json"),
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Flexible(
+                                child: FeatureContainer(
+                                    description: "",
+                                    lottieAsset: "assets/help.json"),
+                              ),
+                            ],
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
           ),
         );
       },
@@ -146,7 +148,8 @@ class FeatureContainer extends StatelessWidget {
       height: 250,
       width: 200,
       child: Column(children: [
-        Lottie.asset(lottieAsset!, width: 200, height: 150),
+        Lottie.asset(lottieAsset!,
+            width: 200, height: 150, frameRate: FrameRate.max),
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Text(
