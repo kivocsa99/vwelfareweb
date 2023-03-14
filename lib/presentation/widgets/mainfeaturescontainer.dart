@@ -18,16 +18,14 @@ class MainFeatureContainer extends HookWidget {
             width: dimensions.maxWidth / 2,
             child: dimensions.maxWidth > 900
                 ? Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Flexible(
-                        child: Column(
-                          children: const [
-                            FeatureContainer(
-                                description:
-                                    "As a Mental Health clinic\nWe value our patients privacy.",
-                                lottieAsset: "assets/privacy.json"),
-                          ],
+                      const Flexible(
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 15.0),
+                          child: FeatureContainer(
+                              description:
+                                  "As a Mental Health clinic\nWe value our patients privacy.",
+                              lottieAsset: "assets/privacy.json"),
                         ),
                       ),
                       Flexible(
@@ -36,20 +34,23 @@ class MainFeatureContainer extends HookWidget {
                             SizedBox(
                               height: 50,
                             ),
-                            FeatureContainer(
-                                description: "",
-                                lottieAsset: "assets/help.json"),
+                            Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 15.0),
+                              child: FeatureContainer(
+                                  description:
+                                      "As a Mental Health clinic\nWe value our patients privacy.",
+                                  lottieAsset: "assets/support.json"),
+                            ),
                           ],
                         ),
                       ),
-                      Flexible(
-                        child: Column(
-                          children: const [
-                            FeatureContainer(
-                                description:
-                                    "Vwelfare has helped over 10,000 patient\nOver the globe",
-                                lottieAsset: "assets/grow.json"),
-                          ],
+                      const Flexible(
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 15.0),
+                          child: FeatureContainer(
+                              description:
+                                  "Vwelfare has helped over 10,000 patient\nOver the globe",
+                              lottieAsset: "assets/grow.json"),
                         ),
                       ),
                       Flexible(
@@ -58,10 +59,13 @@ class MainFeatureContainer extends HookWidget {
                             SizedBox(
                               height: 50,
                             ),
-                            FeatureContainer(
-                                description:
-                                    "Let's Help you\nAnd start our journey.",
-                                lottieAsset: "assets/help.json"),
+                            Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 15.0),
+                              child: FeatureContainer(
+                                  description:
+                                      "Let's Help you\nAnd start our journey.",
+                                  lottieAsset: "assets/help.json"),
+                            ),
                           ],
                         ),
                       ),
@@ -85,7 +89,8 @@ class MainFeatureContainer extends HookWidget {
                               ),
                               Flexible(
                                 child: FeatureContainer(
-                                    description: "",
+                                    description:
+                                        "As a Mental Health clinic\nWe value our patients privacy.",
                                     lottieAsset: "assets/help.json"),
                               ),
                             ],
@@ -108,7 +113,8 @@ class MainFeatureContainer extends HookWidget {
                               ),
                               Flexible(
                                 child: FeatureContainer(
-                                    description: "",
+                                    description:
+                                        "As a Mental Health clinic\nWe value our patients privacy.",
                                     lottieAsset: "assets/help.json"),
                               ),
                             ],
@@ -144,17 +150,20 @@ class FeatureContainer extends StatelessWidget {
             ),
           ],
           border: Border.all(color: Colors.white),
-          borderRadius: BorderRadius.circular(5)),
+          borderRadius: BorderRadius.circular(20)),
       height: 250,
       width: 200,
       child: Column(children: [
         Lottie.asset(lottieAsset!,
             width: 200, height: 150, frameRate: FrameRate.max),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text(
-            description!,
-            style: subtitleTextStyle,
+        const Divider(),
+        Flexible(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              description!,
+              style: subtitleTextStyle,
+            ),
           ),
         )
       ]),

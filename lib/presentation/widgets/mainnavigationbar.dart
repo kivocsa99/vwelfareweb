@@ -12,7 +12,7 @@ class MainNavigationBar extends HookWidget {
       margin: const EdgeInsets.only(bottom: 8.0),
       color: Colors.grey.withOpacity(0.1),
       width: width,
-      height: 60,
+      height: width! > 900 ? 60 : 80,
       child: Padding(
         padding: const EdgeInsets.only(left: 20.0, right: 20.0),
         child: Row(
@@ -57,73 +57,34 @@ class MainNavigationBar extends HookWidget {
                       onPressed: () {},
                       style: menuButtonStyle,
                       child: const Text(
-                        "PORTFOLIO",
+                        "About Us",
                       ),
                     ),
                     TextButton(
                       onPressed: () {},
                       style: menuButtonStyle,
                       child: const Text(
-                        "STYLE",
+                        "Services",
                       ),
                     ),
                     TextButton(
                       onPressed: () {},
                       style: menuButtonStyle,
                       child: const Text(
-                        "ABOUT",
+                        "Contact Us",
                       ),
                     ),
                     TextButton(
                       onPressed: () {},
                       style: menuButtonStyle,
                       child: const Text(
-                        "CONTACT",
+                        "Login",
                       ),
                     ),
                   ],
                 ),
               ),
             ),
-
-            // Flexible(
-            //   child: Wrap(
-            //     children: [
-            //       Container(
-            //         width: 80,
-            //         height: 30,
-            // decoration: BoxDecoration(
-            //     border: Border.all(color: Colors.white),
-            //     borderRadius: BorderRadius.circular(5)),
-            //         child: const Center(
-            //             child: Text(
-            //           "Log in",
-            //           style: TextStyle(
-            //             color: Colors.white,
-            //           ),
-            //         )),
-            //       ),
-            //       const SizedBox(
-            //         width: 5,
-            //       ),
-            //       Container(
-            //         width: 80,
-            //         height: 30,
-            //         decoration: BoxDecoration(
-            //             color: Colors.white,
-            //             border: Border.all(color: Colors.white),
-            //             borderRadius: BorderRadius.circular(5)),
-            //         child: const Center(
-            //             child: Text(
-            //           "Sign up",
-            //           style: TextStyle(
-            //             color: Colors.blue,
-            //           ),
-            //         )),
-            //       )
-            //     ],
-            //   ),
-            // ),
           ],
         ),
       ),

@@ -36,7 +36,27 @@ class MyApp extends StatelessWidget {
           const ResponsiveBreakpoint.autoScale(2460, name: "4K"),
         ],
       ),
-      home: const MyHomePage(),
+      home: const MyWidget(),
+    );
+  }
+}
+
+class MyWidget extends StatelessWidget {
+  const MyWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: TextButton(
+        child: Text("data"),
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => const MyHomePage(),
+            ),
+          );
+        },
+      ),
     );
   }
 }
@@ -54,58 +74,77 @@ class MyHomePage extends HookWidget {
             child: SizedBox(
               height: dimenstions.maxHeight,
               width: dimenstions.maxWidth,
-              child: SingleChildScrollView(
-                child: ListView(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  children: [
-                    MainNavigationBar(width: dimenstions.maxWidth),
-                    const HomeContainer(),
-                    const Padding(
-                      padding: EdgeInsets.only(left: 50.0, right: 50.0),
-                      child: Divider(
-                        thickness: 1,
-                      ),
+              child: ListView(
+                children: [
+                  MainNavigationBar(width: dimenstions.maxWidth),
+                  const HomeContainer(),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 50.0, right: 50.0),
+                    child: Divider(
+                      thickness: 1,
                     ),
-                    const SizedBox(
-                      height: 20,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      "Why Vwelfare ?",
+                      style: headlineTextStyle,
                     ),
-                    Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        "Why Vwelfare ?",
-                        style: headlineTextStyle,
-                      ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const MainFeatureContainer(),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 50.0, right: 50.0),
+                    child: Divider(
+                      thickness: 1,
                     ),
-                    const SizedBox(
-                      height: 20,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      "Our Experts",
+                      style: headlineTextStyle,
                     ),
-                    MainFeatureContainer(),
-                    const SizedBox(
-                      height: 20,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const OurDoctorsContainer(),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 50.0, right: 50.0),
+                    child: Divider(
+                      thickness: 1,
                     ),
-                    const Padding(
-                      padding: EdgeInsets.only(left: 50.0, right: 50.0),
-                      child: Divider(
-                        thickness: 1,
-                      ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      "How can Vwelfare help you ?",
+                      style: headlineTextStyle,
                     ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        "Our Doctors",
-                        style: headlineTextStyle,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    OurDoctorsContainer(),
-                  ],
-                ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  OurDoctorsContainer(),
+                ],
               ),
             ),
           ),
