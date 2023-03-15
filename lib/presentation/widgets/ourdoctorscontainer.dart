@@ -14,17 +14,19 @@ class OurDoctorsContainer extends StatelessWidget {
           child: Align(
             alignment: Alignment.center,
             child: SizedBox(
-              height: dimensions.maxWidth > 900 ? 300 : 600,
+              height: dimensions.maxWidth > 900 ? 400 : 900,
               width: dimensions.maxWidth / 2,
               child: dimensions.maxWidth > 900
                   ? Row(
                       children: [
                         Flexible(
                           child: Column(
-                            children: const [
+                            children: [
                               Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 15.0),
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 15.0),
                                 child: DoctorContainer(
+                                    width: dimensions.maxWidth,
                                     description:
                                         "As a Mental Health clinic\nWe value our patients privacy.",
                                     image: "assets/alaa.jpeg"),
@@ -34,10 +36,12 @@ class OurDoctorsContainer extends StatelessWidget {
                         ),
                         Flexible(
                           child: Column(
-                            children: const [
+                            children: [
                               Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 15.0),
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 15.0),
                                 child: DoctorContainer(
+                                    width: dimensions.maxWidth,
                                     description:
                                         "As a Mental Health clinic\nWe value our patients privacy.",
                                     image: "assets/omar.jpeg"),
@@ -47,10 +51,12 @@ class OurDoctorsContainer extends StatelessWidget {
                         ),
                         Flexible(
                           child: Column(
-                            children: const [
+                            children: [
                               Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 15.0),
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 15.0),
                                 child: DoctorContainer(
+                                    width: dimensions.maxWidth,
                                     description:
                                         "As a Mental Health clinic\nWe value our patients privacy.",
                                     image: "assets/omar.jpeg"),
@@ -66,17 +72,19 @@ class OurDoctorsContainer extends StatelessWidget {
                           child: Container(
                             alignment: Alignment.centerRight,
                             child: Row(
-                              children: const [
+                              children: [
                                 Flexible(
                                   child: DoctorContainer(
+                                      width: dimensions.maxWidth,
                                       description: "",
                                       image: "assets/omar.jpeg"),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 10,
                                 ),
                                 Flexible(
                                   child: DoctorContainer(
+                                      width: dimensions.maxWidth,
                                       description: "",
                                       image: "assets/omar.jpeg"),
                                 ),
@@ -84,21 +92,26 @@ class OurDoctorsContainer extends StatelessWidget {
                             ),
                           ),
                         ),
+                        const SizedBox(
+                          height: 50,
+                        ),
                         Flexible(
                           child: Container(
                             alignment: Alignment.centerRight,
                             child: Row(
-                              children: const [
+                              children: [
                                 Flexible(
                                   child: DoctorContainer(
+                                      width: dimensions.maxWidth,
                                       description: "",
                                       image: "assets/omar.jpeg"),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 10,
                                 ),
                                 Flexible(
                                   child: DoctorContainer(
+                                      width: dimensions.maxWidth,
                                       description: "",
                                       image: "assets/omar.jpeg"),
                                 ),
@@ -119,8 +132,12 @@ class OurDoctorsContainer extends StatelessWidget {
 class DoctorContainer extends StatelessWidget {
   final String? image;
   final String? description;
+  final double? width;
   const DoctorContainer(
-      {super.key, required this.image, required this.description});
+      {super.key,
+      required this.image,
+      required this.description,
+      required this.width});
 
   @override
   Widget build(BuildContext context) {
@@ -138,8 +155,8 @@ class DoctorContainer extends StatelessWidget {
                   ),
                 ],
                 borderRadius: BorderRadius.circular(20)),
-            height: 250,
-            width: 400,
+            height: 400,
+            width: 300,
             child: Stack(
               clipBehavior: Clip.none,
               children: [
@@ -152,13 +169,13 @@ class DoctorContainer extends StatelessWidget {
                       Radius.circular(20.0),
                     ),
                     child: Image.asset(image!,
-                        width: 400, height: 250, fit: BoxFit.cover),
+                        width: 400, height: 400, fit: BoxFit.cover),
                   ),
                 ),
                 Positioned(
                   left: 0,
                   right: 0,
-                  bottom: -20,
+                  bottom: width! > 900 ? -20 : -30,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 5.0),
                     child: Container(

@@ -56,27 +56,27 @@ class HomeContainer extends HookWidget {
               )
             : SizedBox(
                 height: 500,
+                width: double.infinity,
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const SizedBox(
                       height: 10,
                     ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Let's Start\nOur Mental Journey",
-                          style: headlineTextStyle,
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          """Vwelfare is a clinic consird with Mental Health.
-                          \nSeeking to achieve the best """,
-                          style: subtitleTextStyle,
-                        )
-                      ],
+                    Text(
+                      "Let's Start Our Mental Journey",
+                      style: headlineTextStyle,
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 80.0),
+                      child: Text(
+                        """Vwelfare is a clinic consird with Mental Health.
+                            \nSeeking to achieve the best """,
+                        style: subtitleTextStyle,
+                      ),
                     ),
                     Flexible(
                       child: Container(

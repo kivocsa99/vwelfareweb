@@ -4,7 +4,9 @@ import 'package:vwelfare/presentation/components/components.dart';
 
 class MainNavigationBar extends HookWidget {
   final double? width;
-  const MainNavigationBar({super.key, required this.width});
+    final VoidCallback? doctorscroll;
+
+  const MainNavigationBar({super.key, required this.width,required this.doctorscroll});
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +56,7 @@ class MainNavigationBar extends HookWidget {
                       ),
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: doctorscroll,
                       style: menuButtonStyle,
                       child: const Text(
                         "About Us",
